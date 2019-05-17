@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Speech.Synthesis;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace GradesCS
 {
@@ -10,6 +12,8 @@ namespace GradesCS
     {
         static void Main(string[] args)
         {
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+            synth.Speak("Hello! This is the Grade book program by HuBa 95 ");
             GradeBook book = new GradeBook();
             book.AddGrade(91);
             book.AddGrade(89.5f);
