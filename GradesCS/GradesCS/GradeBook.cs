@@ -10,6 +10,7 @@ namespace GradesCS
     {
         public GradeBook()
         {
+            name = "Empty";
             grades = new List<float>();
         }
 
@@ -40,7 +41,7 @@ namespace GradesCS
 
         private List<float> grades;                 //field
         private string name;
-        public string Name
+        public string Name                        //property
         {
             get
             {
@@ -50,10 +51,17 @@ namespace GradesCS
             {
                 if(!String.IsNullOrEmpty(value))
                 {
+                    if (name != value)
+                    {
+                        NameChanged(name, value);
+                    }
+
+
                     name = value;
                 }
 
             }
-        }             //property
+        }
+        public NameChangedDelegate NameChanged;
     }
 }

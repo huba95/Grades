@@ -15,6 +15,7 @@ namespace GradesCS
             SpeechSynthesizer synth = new SpeechSynthesizer();
             synth.Speak("Hello! This is the Grade book program by HuBa 95 ");
             GradeBook book = new GradeBook();
+            book.NameChanged = new NameChangedDelegate(OnNameChanged);
             book.Name = "HuBa`s Gradebook";
             book.Name = "";
             book.AddGrade(91);
@@ -29,12 +30,16 @@ namespace GradesCS
             WriteResult("Average", stats.AverageGrade);
             WriteResult("Highest", stats.HighestGrade);
             WriteResult("Lowest", stats.LowestGrade);
-            Console.ReadKey();            
+            Console.ReadKey();
         }
 
         static void WriteResult(string description, float result)
         {
             Console.WriteLine($"{description}: {result:F2}");
+        }
+        static void OnNameChanged(string exName, string newName)
+        {
+            Console.WriteLine($"GradeBook changing name from {exName} to {newName}");
         }
     }
 }
