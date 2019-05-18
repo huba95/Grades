@@ -39,5 +39,21 @@ namespace GradesCS
         }
 
         private List<float> grades;                 //field
+        private string name;
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if(!String.IsNullOrEmpty(value))
+                {
+                    name = value;
+                }
+
+            }
+        }             //property
     }
 }
