@@ -34,10 +34,11 @@ namespace GradesCS
             book.AddGrade(75);
             book.AddGrade(99);
 
-            StreamWriter outputfile = File.CreateText("grades.txt");
-            book.WriteGrades(outputfile);
-            outputfile.Close();
-
+            using (StreamWriter outputfile = File.CreateText("grades.txt"))
+            {
+                book.WriteGrades(outputfile);
+                //outputfile.Close();
+            }
             book.WriteGrades(Console.Out);
 
             /*  GradeBook book2 = book;
