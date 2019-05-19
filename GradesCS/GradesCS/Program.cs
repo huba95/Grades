@@ -15,7 +15,7 @@ namespace GradesCS
         {
             SpeechSynthesizer synth = new SpeechSynthesizer();
             synth.Speak("Hello! This is the Grade book program by HuBa 95 ");
-            GradeBook book = new Trowawaygb();
+            Trowawaygb book = new Trowawaygb();
             book.NameChanged = new NameChangedDelegate(OnNameChanged);
             NameBook(book);
             AddingGrades(book);
