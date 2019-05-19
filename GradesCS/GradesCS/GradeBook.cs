@@ -48,7 +48,7 @@ namespace GradesCS
             }
         }
 
-        private List<float> grades;                 //field
+        protected List<float> grades;                 //field
         private string name;
         public string Name                        //property
         {

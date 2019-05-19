@@ -15,8 +15,44 @@ namespace GradesCS
         {
             SpeechSynthesizer synth = new SpeechSynthesizer();
             synth.Speak("Hello! This is the Grade book program by HuBa 95 ");
-            GradeBook book = new GradeBook();
+            GradeBook book = new trowawaygb();
             book.NameChanged = new NameChangedDelegate(OnNameChanged);
+            NameBook(book);
+            AddingGrades(book);
+            ShowingGrades(book);
+            GradeStatistics(book);
+            Console.ReadKey();
+        }
+
+        private static void GradeStatistics(trowawaygb book)
+        {
+            GradeStatistics stats = book.ComputeStatistics();
+            Console.WriteLine(book.Name);
+            WriteResult("Average", stats.AverageGrade);
+            WriteResult("Highest", stats.HighestGrade);
+            WriteResult("Lowest", stats.LowestGrade);
+        }
+
+        private static void ShowingGrades(trowawaygb book)
+        {
+            using (StreamWriter outputfile = File.CreateText("grades.txt"))
+            {
+                book.WriteGrades(outputfile);
+                //outputfile.Close();
+            }
+            book.WriteGrades(Console.Out);
+        }
+
+        private static void AddingGrades(trowawaygb book)
+        {
+            book.AddGrade(91);
+            book.AddGrade(89.5f);
+            book.AddGrade(75);
+            book.AddGrade(99);
+        }
+
+        private static void NameBook(GradeBook book)
+        {
             book.Name = "HuBa`s Gradebook";
             // book.Name = "";
             try
@@ -25,30 +61,10 @@ namespace GradesCS
                 book.Name = Console.ReadLine();
 
             }
-            catch(ArgumentException ex)
+            catch (ArgumentException ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            book.AddGrade(91);
-            book.AddGrade(89.5f);
-            book.AddGrade(75);
-            book.AddGrade(99);
-
-            using (StreamWriter outputfile = File.CreateText("grades.txt"))
-            {
-                book.WriteGrades(outputfile);
-                //outputfile.Close();
-            }
-            book.WriteGrades(Console.Out);
-
-            /*  GradeBook book2 = book;
-              book2.AddGrade(95);*/
-            GradeStatistics stats = book.ComputeStatistics();
-            Console.WriteLine(book.Name);
-            WriteResult("Average", stats.AverageGrade);
-            WriteResult("Highest", stats.HighestGrade);
-            WriteResult("Lowest", stats.LowestGrade);
-            Console.ReadKey();
         }
 
         static void WriteResult(string description, float result)
