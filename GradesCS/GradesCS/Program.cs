@@ -36,6 +36,7 @@ namespace GradesCS
 
             StreamWriter outputfile = File.CreateText("grades.txt");
             book.WriteGrades(outputfile);
+            outputfile.Close();
 
             book.WriteGrades(Console.Out);
 
