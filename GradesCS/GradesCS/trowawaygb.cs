@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GradesCS
 {
-    class trowawaygb:GradeBook
+    public class Trowawaygb : GradeBook
     {
-        public GradeStatistics Computestatistics()
+        public override GradeStatistics ComputeStatistics()
         {
             float lowest = float.MaxValue;
             foreach (float grade in grades)

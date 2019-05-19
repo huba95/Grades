@@ -20,7 +20,7 @@ namespace GradesCS
             grades.Add(grade);                  //method
         }
 
-        public GradeStatistics ComputeStatistics()
+        public virtual GradeStatistics ComputeStatistics()
         {
             GradeStatistics stats = new GradeStatistics();
             

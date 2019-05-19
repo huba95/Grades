@@ -15,7 +15,7 @@ namespace GradesCS
         {
             SpeechSynthesizer synth = new SpeechSynthesizer();
             synth.Speak("Hello! This is the Grade book program by HuBa 95 ");
-            GradeBook book = new trowawaygb();
+            GradeBook book = new Trowawaygb();
             book.NameChanged = new NameChangedDelegate(OnNameChanged);
             NameBook(book);
             AddingGrades(book);
@@ -24,7 +24,7 @@ namespace GradesCS
             Console.ReadKey();
         }
 
-        private static void GradeStatistics(trowawaygb book)
+        private static void GradeStatistics(Trowawaygb book)
         {
             GradeStatistics stats = book.ComputeStatistics();
             Console.WriteLine(book.Name);
@@ -33,7 +33,7 @@ namespace GradesCS
             WriteResult("Lowest", stats.LowestGrade);
         }
 
-        private static void ShowingGrades(trowawaygb book)
+        private static void ShowingGrades(Trowawaygb book)
         {
             using (StreamWriter outputfile = File.CreateText("grades.txt"))
             {
@@ -43,7 +43,7 @@ namespace GradesCS
             book.WriteGrades(Console.Out);
         }
 
-        private static void AddingGrades(trowawaygb book)
+        private static void AddingGrades(Trowawaygb book)
         {
             book.AddGrade(91);
             book.AddGrade(89.5f);
