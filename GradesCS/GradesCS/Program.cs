@@ -17,7 +17,17 @@ namespace GradesCS
             GradeBook book = new GradeBook();
             book.NameChanged = new NameChangedDelegate(OnNameChanged);
             book.Name = "HuBa`s Gradebook";
-            book.Name = "";
+            // book.Name = "";
+            try
+            {
+                Console.WriteLine("Enter name:");
+                book.Name = Console.ReadLine();
+
+            }
+            catch(ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);

@@ -58,16 +58,16 @@ namespace GradesCS
             }
             set
             {
-                if(!String.IsNullOrEmpty(value))
+                if (string.IsNullOrEmpty(value))
                 {
-                    if (name != value)
-                    {
-                        NameChanged(name, value);
-                    }
-
-
-                    name = value;
+                    throw new ArgumentException("Nam cant be null or empty");
                 }
+                if (name != value)
+                {
+                    NameChanged(name, value);
+                }
+                name = value;
+                
 
             }
         }
