@@ -23,6 +23,8 @@ namespace GradesCS
             book.AddGrade(75);
             book.AddGrade(99);
 
+            book.WriteGrades(Console.Out);
+
             /*  GradeBook book2 = book;
               book2.AddGrade(95);*/
             GradeStatistics stats = book.ComputeStatistics();
