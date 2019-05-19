@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Speech.Synthesis;
 using System.Text;
@@ -32,6 +33,9 @@ namespace GradesCS
             book.AddGrade(89.5f);
             book.AddGrade(75);
             book.AddGrade(99);
+
+            StreamWriter outputfile = File.CreateText("grades.txt");
+            book.WriteGrades(outputfile);
 
             book.WriteGrades(Console.Out);
 
